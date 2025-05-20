@@ -1,0 +1,43 @@
+﻿@{
+	// Layout = "~/Views/Shared/_Layout.cshtml";
+        Layout = "_Layout";
+}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Welcome to MediConnect</h1>
+			<p>MediConnect is a platform that allows you to manage your medical records and appointments online.</p>
+			<p>Sign up today to get started!</p>
+		</div>
+	</div>
+    </div>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card">
+            <img src="/Data/SignUp.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Sign Up</h5>
+                <p class="card-text">Don't have an accout? Sign up here to manage your medical records and appointments online</p>
+                <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-primary">Sign Up</a>
+            </div>
+           
+        </div>
+    </div>
+    <div class="col">
+        <div class="card ">
+            <img src="~/Data/Login.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Log in</h5>
+                <p class="card-text">Already have an accout? Log in here to manage your medical records and appointments online.</p>
+                <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary">Log in</a>
+            </div>
+          
+        </div>
+    </div>
+   
+</div>
+

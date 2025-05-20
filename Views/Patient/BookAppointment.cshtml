@@ -1,0 +1,43 @@
+﻿@model MediConnectwithAuthentication.Models.Appointment
+@{
+    ViewData["Title"] = "Book Appointment";
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Book Appointment</h2>
+
+    <form asp-action="BookAppointment" asp-controller="Patient" method="post">
+        <div class="mb-3">
+            <label asp-for="DoctorName" class="form-label">Select Doctor</label>
+            <select class="form-select" asp-for="DoctorName" required>
+                <option value="">-- Choose a Doctor --</option>
+                <option value="Dr. Zameer Ali">Dr. Zameer - Cardiologist</option>
+                <option value="Dr. Hamza">Dr. Hamza - Dentist</option>
+                <option value="Dr. Ali">Dr. Ali - Neurologist</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="AppointmentDate" class="form-label">Select Date</label>
+            <input type="date" class="form-control" asp-for="AppointmentDate" required />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="TimeSlot" class="form-label">Select Time Slot</label>
+            <select class="form-select" asp-for="TimeSlot" required>
+                <option value="">-- Choose a Time Slot --</option>
+                <option value="10:00 AM">10:00 AM - 11:00 AM</option>
+                <option value="2:00 PM">2:00 PM - 3:00 PM</option>
+                <option value="5:00 PM">5:00 PM - 6:00 PM</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Reason" class="form-label">Reason for Appointment</label>
+            <textarea class="form-control" asp-for="Reason" rows="3" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Confirm Appointment</button>
+    </form>
+</div>

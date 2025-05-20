@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Doctor Profile";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutDoctor.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Doctor Profile</h2>
+
+    <div class="card shadow p-4 mb-5">
+        <form id="profileForm" method="post">
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">Full Name:</div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="fullName" name="FullName" value="Dr. Zameer Ali" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">Email:</div>
+                <div class="col-md-8">
+                    <input type="email" class="form-control" id="email" name="Email" value="zameer.ali@mediconnect.com" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">Specialization:</div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="specialization" name="Specialization" value="Cardiologist" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">Phone:</div>
+                <div class="col-md-8">
+                    <input type="tel" class="form-control" id="phone" name="Phone" value="+92 321 1234567" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">Experience:</div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="experience" name="Experience" value="10 Years" readonly>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">Location:</div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="location" name="Location" value="Lahore, Pakistan" readonly>
+                </div>
+            </div>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-primary" id="editBtn">Edit Profile</button>
+                <button type="submit" class="btn btn-success" id="saveBtn" style="display:none;">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('editBtn').addEventListener('click', function() {
+        var fields = document.querySelectorAll('#profileForm input');
+        fields.forEach(function(field) {
+            field.removeAttribute('readonly');
+        });
+
+        document.getElementById('saveBtn').style.display = 'inline-block';
+        document.getElementById('editBtn').style.display = 'none';
+    });
+</script>
+
+<style>
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+    }
+</style>

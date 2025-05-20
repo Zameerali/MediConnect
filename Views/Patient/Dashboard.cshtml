@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+@model List<MediConnectwithAuthentication.Models.Appointment>
+
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Welcome, Ahmad</h2>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Total Appointments</h5>
+                <h2>12</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Upcoming Appointments</h5>
+                <h2>3</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Completed Appointments</h5>
+                <h2>9</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h4>Upcoming Appointments</h4>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsTableBody">
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var appointment in Model)
+                        {
+                            <tr data-id="@appointment.Id">
+                                <td>@appointment.DoctorName</td>
+                                <td>@appointment.AppointmentDate.ToString("MMMM dd, yyyy")</td>
+                                <td>@appointment.TimeSlot</td>
+                                <td><span class="badge bg-warning text-dark">@appointment.Status</span></td>
+                                <td>
+                                    <a href="@Url.Action("DeleteAppointment", "Patient", new { id = appointment.Id })" class="btn btn-sm btn-danger">Cancel</a>
+                                    <a href="@Url.Action("EditAppointment", "Patient", new { id = appointment.Id })" class="btn btn-sm btn-secondary">Reschedule</a>
+                                </td>
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="5">No appointments found.</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <a href="BookAppointment" class="btn btn-primary w-100">Book Appointment</a>
+        </div>
+        <div class="col-md-4">
+            <a href="Profile" class="btn btn-secondary w-100">View Profile</a>
+        </div>
+        <div class="col-md-4">
+            <a href="Appointments" class="btn btn-info w-100">View All Appointments</a>
+        </div>
+    </div>
+</div>
+
+    @section Scripts {
+        <script src="~/js/signalr.js"></script>
+        <script src="~/js/connections.js"></script>
+    }

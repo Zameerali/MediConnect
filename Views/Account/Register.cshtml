@@ -1,0 +1,109 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="height: 90vh;">
+    <div class="signup-container">
+        <h3 class="text-center mb-4">Sign-Up to MediConnect</h3>
+
+        <div class="mb-4 text-center">
+            <label class="form-label fw-bold">Register as:</label>
+            <div class="form-check form-check-inline ms-2">
+                <input class="form-check-input" type="radio" name="role" id="patientOption" value="patient" checked>
+                <label class="form-check-label" for="patientOption">Patient</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="role" id="doctorOption" value="doctor">
+                <label class="form-check-label" for="doctorOption">Doctor</label>
+            </div>
+        </div>
+
+        <form id="patientForm" asp-controller="Account" asp-action="Login">
+            <div class="mb-3">
+                <label for="patientName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="patientName" name="FullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="patientEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="patientEmail" name="Email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="PhoneNumber" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="DateOfBirth" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="patientPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="patientPassword" name="Password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Sign Up as Patient</button>
+        </form>
+
+        <form id="doctorForm" asp-controller="Account" asp-action="Login" style="display: none;">
+            <div class="mb-3">
+                <label for="doctorName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="doctorName" name="FullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="doctorEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="doctorEmail" name="Email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="specialization" class="form-label">Specialization</label>
+                <input type="text" class="form-control" id="specialization" name="Specialization" placeholder="Enter your specialization" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="license" class="form-label">Medical License Number</label>
+                <input type="text" class="form-control" id="license" name="LicenseNumber" placeholder="Enter your license number" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="doctorPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="doctorPassword" name="Password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Sign Up as Doctor</button>
+        </form>
+
+        <p class="text-center mt-3">Already have an account? <a asp-controller="Account" asp-action="Login">Login</a></p>
+    </div>
+</div>
+
+<style>
+    .signup-container {
+        width: 450px;
+        padding: 25px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script>
+    const patientForm = document.getElementById("patientForm");
+    const doctorForm = document.getElementById("doctorForm");
+    const roleRadios = document.querySelectorAll('input[name="role"]');
+
+    roleRadios.forEach(radio => {
+        radio.addEventListener("change", function () {
+            if (this.value === "patient") {
+                patientForm.style.display = "block";
+                doctorForm.style.display = "none";
+            } else {
+                patientForm.style.display = "none";
+                doctorForm.style.display = "block";
+            }
+        });
+    });
+</script>

@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Book Appointment";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutDoctor.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">My Schedule</h2>
+
+    <div class="card shadow p-4 mb-5">
+        <form>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="day" class="form-label fw-bold">Day</label>
+                    <select id="day" class="form-select" required>
+                        <option selected disabled>Select a day</option>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="startTime" class="form-label fw-bold">Start Time</label>
+                    <input type="time" id="startTime" class="form-control" required />
+                </div>
+
+                <div class="col-md-3">
+                    <label for="endTime" class="form-label fw-bold">End Time</label>
+                    <input type="time" id="endTime" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="text-end">
+                <button type="submit" class="btn btn-success">Add to Schedule</button>
+            </div>
+        </form>
+    </div>
+
+    <h4 class="mb-3">Upcoming Availability</h4>
+    <table class="table table-bordered shadow">
+        <thead class="table-light">
+            <tr>
+                <th>Day</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td>10:00 AM</td>
+                <td>1:00 PM</td>
+                <td>
+                    <button class="btn btn-warning btn-sm">Edit</button>
+                    <button class="btn btn-danger btn-sm">Remove</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>2:00 PM</td>
+                <td>5:00 PM</td>
+                <td>
+                    <button class="btn btn-warning btn-sm">Edit</button>
+                    <button class="btn btn-danger btn-sm">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
