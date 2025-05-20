@@ -30,7 +30,9 @@ namespace MediConnect.Controllers
 
         public IActionResult Dashboard()
         {
-            return View();
+            List<Appointment> appointments = _appointmentRepository.GetAppointments();
+
+            return View("Dashboard" , appointments);
         }
 
         [HttpGet]
