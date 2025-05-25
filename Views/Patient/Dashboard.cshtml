@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Welcome, Ahmad</h2>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Total Appointments</h5>
+                <h2>12</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Upcoming Appointments</h5>
+                <h2>3</h2>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <h5>Completed Appointments</h5>
+                <h2>9</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h4>Upcoming Appointments</h4>
+        <table class="table table-bordered mt-3">
+            <thead class="table-light">
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Doctor</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>March 28, 2025</td>
+                    <td>10:00 AM</td>
+                    <td>Dr. Zameer Ali</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>April 5, 2025</td>
+                    <td>2:30 PM</td>
+                    <td>Dr. Hamza</td>
+                    <td><span class="badge bg-success">Confirmed</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <a href="BookAppointment" class="btn btn-primary w-100">Book Appointment</a>
+        </div>
+        <div class="col-md-4">
+            <a href="Profile" class="btn btn-secondary w-100">View Profile</a>
+        </div>
+        <div class="col-md-4">
+            <a href="Appointments" class="btn btn-info w-100">View All Appointments</a>
+        </div>
+    </div>
+</div>

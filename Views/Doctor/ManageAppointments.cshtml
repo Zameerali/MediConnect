@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Book Appointment";
+}
+@{
+    Layout = "~/Views/Shared/_LayoutDoctor.cshtml";
+}
+
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Manage Appointments</h2>
+
+    <table class="table table-bordered table-hover shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>Patient Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ahmed</td>
+                <td>2025-04-07</td>
+                <td>10:30 AM</td>
+                <td>Follow-up</td>
+                <td><span class="badge bg-warning text-dark">Pending</span></td>
+                <td>
+                    <a href="" class="btn btn-success btn-sm">Approve</a>
+                    <a href="" class="btn btn-danger btn-sm">Cancel</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Azhar</td>
+                <td>2025-04-07</td>
+                <td>11:15 AM</td>
+                <td>Check-up</td>
+                <td><span class="badge bg-success">Confirmed</span></td>
+                <td>
+                    <a href="" class="btn btn-danger btn-sm">Cancel</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Ahmed Khan</td>
+                <td>2025-04-07</td>
+                <td>12:00 PM</td>
+                <td>Consultation</td>
+                <td><span class="badge bg-secondary">Cancelled</span></td>
+                <td>
+                    <a href="" class="btn btn-secondary btn-sm disabled">No Actions</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

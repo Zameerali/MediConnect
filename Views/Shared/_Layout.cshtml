@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - MediConnect</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/MediConnect.styles.css" asp-append-version="true" />
+
+</head>
+<body>
+	<header>
+		<nav class="navbar bg-body-tertiary py-3">
+			<div class="container d-flex justify-content-center align-items-center">
+				<a class="navbar-brand fs-2 fw-bold">MediConnect</a>
+			</div>
+		</nav>
+	</header>
+
+
+	<div class="container content">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted" style="margin-top:auto; padding: 15px 0; text-align: center;">
+		<div class="container text-center">
+			<h2>&copy; 2025 - MediConnect</h2>
+		</div>
+	</footer>
+	@RenderSection("Scripts", required: false)
+
+
+
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
